@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  */
 
 
-public class ListViewAdapter extends MyBaseAdapter<User>{
+public class ListViewAdapter extends MyBaseAdapter<User> {
     public ListViewAdapter(List<User> datas, Context context) {
         super(datas, context);
     }
@@ -28,11 +28,11 @@ public class ListViewAdapter extends MyBaseAdapter<User>{
     @Override
     public View getItemView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
-        if(view == null){
-            view = getInflater().inflate(R.layout.listview_item,null);
+        if (view == null) {
+            view = getInflater().inflate(R.layout.listview_item, null);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.textId.setText(getItem(i).getId());
@@ -42,15 +42,16 @@ public class ListViewAdapter extends MyBaseAdapter<User>{
     }
 
 
-    class ViewHolder{
+    class ViewHolder {
         @BindView(R.id.textview_id)
         TextView textId;
         @BindView(R.id.textview_username)
         TextView textUserName;
         @BindView(R.id.textview_password)
         TextView textPassword;
-        public ViewHolder(View convertView){
-            ButterKnife.bind(this,convertView);
+
+        public ViewHolder(View convertView) {
+            ButterKnife.bind(this, convertView);
         }
     }
 }
