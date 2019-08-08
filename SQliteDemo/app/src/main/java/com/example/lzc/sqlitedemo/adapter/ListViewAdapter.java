@@ -10,7 +10,7 @@ import com.example.lzc.sqlitedemo.model.User;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -43,11 +43,11 @@ public class ListViewAdapter extends MyBaseAdapter<User>{
 
 
     class ViewHolder{
-        @Bind(R.id.textview_id)
+        @BindView(R.id.textview_id)
         TextView textId;
-        @Bind(R.id.textview_username)
+        @BindView(R.id.textview_username)
         TextView textUserName;
-        @Bind(R.id.textview_password)
+        @BindView(R.id.textview_password)
         TextView textPassword;
         public ViewHolder(View convertView){
             ButterKnife.bind(this,convertView);
