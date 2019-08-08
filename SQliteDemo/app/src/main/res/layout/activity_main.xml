@@ -3,33 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
 
-<Button
-    android:text="add"
-    android:id="@+id/button_add"
-    style="@style/button" />
+        <Button
+            android:id="@+id/button_add"
+            style="@style/button"
+            android:text="add" />
 
-    <Button
-        android:text="delete"
-        android:id="@+id/button_delete"
-        style="@style/button" />
-    <Button
-        android:text="update"
-        android:id="@+id/button_update"
-        style="@style/button" />
-    <Button
-        android:text="select"
-        android:id="@+id/button_select"
-        style="@style/button" />
+        <Button
+            android:id="@+id/button_delete"
+            style="@style/button"
+            android:text="delete" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button_update"
+            style="@style/button"
+            android:text="update" />
+
+        <Button
+            android:id="@+id/button_select"
+            style="@style/button"
+            android:text="select" />
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/listview_id"
         android:layout_width="match_parent"

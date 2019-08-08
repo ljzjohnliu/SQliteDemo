@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 
-public abstract class MyBaseAdapter<T> extends BaseAdapter{
+public abstract class MyBaseAdapter<T> extends BaseAdapter {
     private List<T> datas;
     private Context context;
     private LayoutInflater inflater;
@@ -27,12 +27,12 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter{
     public MyBaseAdapter(List<T> datas, Context context) {
         this.datas = datas;
         this.context = context;
-        this.inflater  = LayoutInflater.from(context);
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return datas == null?0:datas.size();
+        return datas == null ? 0 : datas.size();
     }
 
     @Override
@@ -47,24 +47,24 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return getItemView(i,view,viewGroup);
+        return getItemView(i, view, viewGroup);
     }
 
     public abstract View getItemView(int i, View view, ViewGroup viewGroup);
 
-    public void clear(){
+    public void clear() {
         datas.clear();
         notifyDataSetChanged();
     }
 
-    public void addAll(List<T> dd){
+    public void addAll(List<T> dd) {
         datas.addAll(dd);
         notifyDataSetChanged();
     }
 
-    public void deleteOne(String name){
+    public void deleteOne(String name) {
         for (int i = 0; i < datas.size(); i++) {
-            if(datas.get(i).equals(name)){
+            if (datas.get(i).equals(name)) {
                 datas.remove(i);
                 notifyDataSetChanged();
                 break;
