@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.lzc.sqlitedemo.DB.UserDao;
+import com.example.lzc.sqlitedemo.db.UserDao;
 import com.example.lzc.sqlitedemo.adapter.ListViewAdapter;
 import com.example.lzc.sqlitedemo.model.User;
 
@@ -39,6 +39,21 @@ public class MainActivity extends Activity {
     private UserDao dao;
     private ListViewAdapter adapter;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        unbinder = ButterKnife.bind(this);
+        dao = new UserDao(MainActivity.this);
+        setData();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
+
     @OnClick({R.id.button_add, R.id.button_delete, R.id.button_update, R.id.button_select})
     public void OnClick(View view) {
         switch (view.getId()) {
@@ -61,6 +76,7 @@ public class MainActivity extends Activity {
      * 查询数据
      */
     private void select() {
+        adapter.clear();
         adapter.addAll(dao.select());
     }
 
@@ -68,14 +84,14 @@ public class MainActivity extends Activity {
      * 删除数据
      */
     private void delete() {
-        dao.delete("XXX");
+        dao.delete("测试测试1");
     }
 
     /**
      * 添加数据
      */
     private void add() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             User user = new User();
             user.setUserName("测试测试" + i);
             user.setPassWord(i + "" + i + "" + i + "");
@@ -87,27 +103,11 @@ public class MainActivity extends Activity {
      * 更新操作
      */
     private void update() {
-        dao.updatae("测试测试112323132", "XXX");
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        unbinder = ButterKnife.bind(this);
-        dao = new UserDao(MainActivity.this);
-        setData();
+        dao.updatae("测试测试3", "XXX");
     }
 
     private void setData() {
         adapter = new ListViewAdapter(new ArrayList<User>(), getApplicationContext());
         listView.setAdapter(adapter);
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
-    }
-
 }
